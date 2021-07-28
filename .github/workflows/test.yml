@@ -21,6 +21,9 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: Install dev dependencies
+        run: npm install -g @angular/cli@11.2.0
+
       - name: Install Dependencies
         run: npm install
 
