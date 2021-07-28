@@ -31,8 +31,8 @@ jobs:
 #         run: npm build
 
       - name: Unit tests
-        run: ng test
+        run: ng test --watch=false --browsers=ChromeHeadless
         
-      - name: e2e tests
-        run: ng e2e
+#       - name: e2e tests
+#         run: ng e2e
         
