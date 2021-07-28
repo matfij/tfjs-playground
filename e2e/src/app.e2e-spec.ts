@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('tfjs-text-recognition app is running!');
+    expect(await page.getTitleText()).toEqual('TF-powered text recognition');
   });
 
   afterEach(async () => {

@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -10,9 +16,27 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      extend: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(
+    private _translateService: TranslateService
+  ) {
+    // todo - move langs to configuration
+    _translateService.addLangs(['en']);
+    _translateService.setDefaultLang('en');
+  }
+}
