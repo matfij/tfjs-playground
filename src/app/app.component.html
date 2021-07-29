@@ -2,4 +2,7 @@
   <div class="title">
     {{ 'common.title' | translate }}
   </div>
+
+  <input type="number" #target (change)="makePrediction(+target.value)">
+  <p>{{ _prediction }}</p>
 </div>
