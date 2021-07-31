@@ -22,16 +22,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'tfjs-text-recognition'`, () => {
+  it(`should contain router outlet'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('tfjs-text-recognition');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('div.wrapper-main div.title').textContent).toContain('common.title');
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });

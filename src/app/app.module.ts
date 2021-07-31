@@ -33,9 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 export class AppModule {
 
   constructor(
-    private _translateService: TranslateService
+    _translateService: TranslateService
   ) {
-    // todo - move langs to configuration
     _translateService.addLangs(['en']);
     _translateService.setDefaultLang('en');
   }
