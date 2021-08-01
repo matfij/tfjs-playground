@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SignaturePadModule } from 'angular2-signaturepad';
+import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 import { SignaturePadComponent } from './signature-pad.component';
 
 describe('SignaturePadComponent', () => {
@@ -9,7 +9,12 @@ describe('SignaturePadComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SignaturePadComponent ],
-      imports: [ SignaturePadModule ]
+      imports: [
+        TranslateModule.forChild()
+      ],
+      providers: [
+        TranslateStore
+      ]
     })
     .compileComponents();
   });

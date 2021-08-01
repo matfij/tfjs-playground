@@ -1,37 +1,25 @@
 import { AfterViewInit, Component, Input, Output, ViewChild, EventEmitter } from '@angular/core';
-import { SignaturePad } from 'angular2-signaturepad';
+import { DrawableDirective } from 'src/app/utils/directives/drawable.directive';
 
 @Component({
   selector: 'app-signature-pad',
   templateUrl: './signature-pad.component.html',
   styleUrls: ['./signature-pad.component.scss']
 })
-export class SignaturePadComponent implements AfterViewInit {
+export class SignaturePadComponent {
 
-  @Input() signaturePadOptions: Object = {
-    'dotSize': 2,
-    'maxWidth': 2,
-    // 'minWidth': 5,
-    'canvasWidth': 500,
-    'canvasHeight': 300
-  };
-  @Output() imageData = new EventEmitter<any>();
+  @ViewChild(DrawableDirective) _canvas: DrawableDirective;
 
-  @ViewChild(SignaturePad) _signaturePad: SignaturePad;
+  @Output() imageData = new EventEmitter<ImageData>();
 
   constructor() {}
 
-  ngAfterViewInit() {
-    this._signaturePad.set('minWidth', 5);
-    this._signaturePad.clear();
-  }
-
-  public _drawComplete() {
-    this.imageData.next(this._signaturePad.toDataURL());
+  public _onImageChanged(imageData: ImageData) {
+    this.imageData.next(imageData);
   }
 
   public _clear() {
-    this._signaturePad.clear();
+    this._canvas.clear();
   }
 
 }

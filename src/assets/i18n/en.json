@@ -1,5 +1,8 @@
 {
   "common": {
     "title": "TF-powered text recognition"
+  },
+  "icons": {
+    "clear": "&times;"
   }
 }

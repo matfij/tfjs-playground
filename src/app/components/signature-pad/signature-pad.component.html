@@ -1,6 +1,4 @@
 <div class="wrapper-pad">
-  <signature-pad
-    [options]="signaturePadOptions"
-    (onEndEvent)="_drawComplete()">
-  </signature-pad>
+  <canvas appDrawable (imageChanged)="_onImageChanged($event)"></canvas><br>
+  <button (click)="_clear()" innerHTML="{{ 'icons.clear' | translate }}"></button>
 </div>

@@ -2,15 +2,20 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignaturePadComponent } from 'src/app/components/signature-pad/signature-pad.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { SignaturePadModule  } from 'angular2-signaturepad';
+import { DrawableDirective } from 'src/app/utils/directives/drawable.directive';
+import { SimpleChartComponent } from 'src/app/components/simple-chart/simple-chart.component';
 
 const COMPONENTS = [
   SignaturePadComponent,
+  SimpleChartComponent
+];
+
+const DIRECTIVES = [
+  DrawableDirective
 ];
 
 const MODULES = [
   TranslateModule.forChild(),
-  SignaturePadModule,
 ];
 
 const CHILD_PROVIDERS = [
@@ -19,7 +24,8 @@ const CHILD_PROVIDERS = [
 
 @NgModule({
   declarations: [
-    ...COMPONENTS
+    ...COMPONENTS,
+    ...DIRECTIVES
   ],
   imports: [
     CommonModule,
@@ -27,6 +33,7 @@ const CHILD_PROVIDERS = [
   ],
   exports: [
     ...COMPONENTS,
+    ...DIRECTIVES,
     MODULES
   ]
 })
@@ -36,6 +43,6 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: CHILD_PROVIDERS
-    }
+    };
   }
 }

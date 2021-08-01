@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as tf from '@tensorflow/tfjs';
-import { PixelData } from '@tensorflow/tfjs';
 
 @Component({
   selector: 'app-write-number',
@@ -12,7 +11,7 @@ export class WriteNumberComponent implements OnInit {
   private _model: tf.LayersModel;
   public _prediction: any;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this._loadModel().then((model: tf.LayersModel) => {
       this._model = model;
       console.log(model);
@@ -23,16 +22,12 @@ export class WriteNumberComponent implements OnInit {
     return tf.loadLayersModel('/assets/models/number_classifier/model.json');
   }
 
-  public _predictNumber(numberImage: string) {
+  public _predictNumber(numberImage: ImageData) {
     return tf.tidy(() => {
-      // conver base64 to PixelData
-      let im = new HTMLImageElement()
-      im.src = numberImage;
-
-      // convert canvas data to tensor
-      let img = tf.browser.fromPixels(im, 1);
+      // conver canvas data to tenor
+      let img = tf.browser.fromPixels(numberImage, 1);
       img = img.reshape([1, 28, 28, 1]);
-      img = img.cast('float32');
+      img = tf.cast(img, 'float32');
 
       // feed the model
       const output = this._model.predict(img);
@@ -41,5 +36,19 @@ export class WriteNumberComponent implements OnInit {
     });
   }
 
+  listToMatrix(list, elementsPerSubArray) {
+    var matrix = [], i, k;
+
+    for (i = 0, k = -1; i < list.length; i++) {
+        if (i % elementsPerSubArray === 0) {
+            k++;
+            matrix[k] = [];
+        }
+
+        matrix[k].push(list[i]);
+    }
+
+    return matrix;
+}
 
 }
