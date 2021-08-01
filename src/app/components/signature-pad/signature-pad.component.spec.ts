@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SignaturePadModule } from 'angular2-signaturepad';
 import { SignaturePadComponent } from './signature-pad.component';
 
 describe('SignaturePadComponent', () => {
@@ -7,7 +8,8 @@ describe('SignaturePadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignaturePadComponent ]
+      declarations: [ SignaturePadComponent ],
+      imports: [ SignaturePadModule ]
     })
     .compileComponents();
   });
