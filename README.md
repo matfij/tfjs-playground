@@ -10,5 +10,5 @@ Training application for exploring capabilities of Tensorflow.js library with An
  - install dependencies: `npm i`
  - run application: `ng s`
  - run unit tests (Karma): `ng test`
- - run e2e tests (Protractor, requires browser driver): `ng e2e`
+ - run e2e tests (Cypress): `ng e2e`
  - compile and build application: `ng b`
