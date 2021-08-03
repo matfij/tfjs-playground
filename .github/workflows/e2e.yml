@@ -6,7 +6,7 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v2
+      - uses: actions/checkout@v2
 
       - uses: cypress-io/github-action@v2
 
