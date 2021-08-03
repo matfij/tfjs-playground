@@ -8,6 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - run: npm install -g @angular/cli@11.2.0
+      - run: npm install
+
       - run: npm start
 
       - uses: cypress-io/github-action@v2
