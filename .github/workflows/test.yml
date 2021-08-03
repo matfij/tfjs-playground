@@ -27,12 +27,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-#       - name: Build
-#         run: npm build
-
       - name: Unit tests
         run: ng test --watch=false --browsers=ChromeHeadless
-        
-#       - name: e2e tests
-#         run: ng e2e
-        
