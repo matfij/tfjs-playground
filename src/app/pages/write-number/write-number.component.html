@@ -1,2 +1,17 @@
+<div class="row wrapper-panel">
 
-<app-signature-pad (imageData)="_predictNumber($event)"></app-signature-pad>
+  <div class="col-lg-6 wrapper-pad">
+    <div class="label-pad">
+      {{ 'pages.writeNumber.title' | translate }}
+    </div>
+    <app-signature-pad (imageData)="_predictNumber($event)"></app-signature-pad>
+  </div>
+
+  <div class="col-lg-6 wrapper-pad">
+    <div class="label-pad">
+      {{ 'pages.writeNumber.results' | translate }}
+    </div>
+    <!-- TODO - graph component -->
+  </div>
+
+</div>

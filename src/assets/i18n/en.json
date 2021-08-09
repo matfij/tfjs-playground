@@ -4,5 +4,11 @@
   },
   "icons": {
     "clear": "&times;"
+  },
+  "pages": {
+    "writeNumber": {
+      "title": "Write number for classification",
+      "results": "Classification results"
+    }
   }
 }

@@ -1,14 +1,24 @@
+@import '../../@core/theme/variables.scss';
+
 .wrapper-pad {
   display: inline-flex;
   justify-content: flex-end;
-  border: 10px solid lighten(#ef6c00, 15%);
-  transition: border-color .2s ease-in;
-  &:hover {
-      border: 10px solid #ef6c00;
-      transition: border-color .2s ease-in;
+  border: 2px dashed $app-dark;
+  border-radius: 6px;
+
+  canvas {
+    cursor: crosshair;
   }
 }
 
-canvas {
-  cursor: crosshair;
+.btn-clear {
+  width: 48px;
+  height: 48px;
+  margin-top: -6px;
+
+  color: $app-red;
+  cursor: pointer;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
 }

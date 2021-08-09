@@ -1,4 +1,4 @@
 <div class="wrapper-pad">
   <canvas appDrawable (imageChanged)="_onImageChanged($event)"></canvas><br>
-  <button (click)="_clear()" innerHTML="{{ 'icons.clear' | translate }}"></button>
+  <div (click)="_clear()" innerHTML="{{ 'icons.clear' | translate }}" class="btn-clear"></div>
 </div>

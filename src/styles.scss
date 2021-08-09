@@ -1,10 +1,39 @@
-$app-dark: #001427;
-$app-green: #708D81;
-$app-camel: #f4d58d;
-$app-red: #BF0603;
-$app-crimson: #8D0801;
+@import '~bootstrap/scss/bootstrap';
 
+$app-dark: #001427;
+$app-green: #708d81;
+$app-camel: #f4d58d;
+$app-red: #bf0603;
+$app-crimson: #8d0801;
+
+$bodyPadding: 128px;
 
 .gone {
   display: none;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+
+  color: $app-dark;
+  backdrop-filter: blur(6px);
+
+  background: {
+    image: url('assets/img/background.jpg');
+    size: cover;
+    repeat: no-repeat;
+    position: center center;
+  }
+}
+
+.wrapper-panel {
+  position: absolute;
+  top: $bodyPadding;
+  bottom: $bodyPadding;
+  left: $bodyPadding;
+  right: $bodyPadding;
+  background-color: rgba(255, 255, 255, 0.77);
+  border-radius: 6px;
+  overflow: hidden;
 }

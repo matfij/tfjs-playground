@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 
 import { WriteNumberComponent } from './write-number.component';
 
@@ -8,6 +9,8 @@ describe('WriteNumberComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ TranslateModule.forChild() ],
+      providers: [ TranslateStore ],
       declarations: [ WriteNumberComponent ]
     })
     .compileComponents();
