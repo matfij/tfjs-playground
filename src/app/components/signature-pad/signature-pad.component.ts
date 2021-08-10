@@ -1,16 +1,16 @@
-import { AfterViewInit, Component, Input, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, Output, ViewChild, EventEmitter } from '@angular/core';
 import { DrawableDirective } from 'src/app/utils/directives/drawable.directive';
 
 @Component({
   selector: 'app-signature-pad',
   templateUrl: './signature-pad.component.html',
-  styleUrls: ['./signature-pad.component.scss']
+  styleUrls: ['./signature-pad.component.scss'],
 })
 export class SignaturePadComponent {
+  @Output() imageData = new EventEmitter<ImageData>();
+  @Output() imageCleared = new EventEmitter<boolean>();
 
   @ViewChild(DrawableDirective) _canvas: DrawableDirective;
-
-  @Output() imageData = new EventEmitter<ImageData>();
 
   constructor() {}
 
@@ -20,6 +20,7 @@ export class SignaturePadComponent {
 
   public _clear() {
     this._canvas.clear();
-  }
 
+    this.imageCleared.next(true);
+  }
 }

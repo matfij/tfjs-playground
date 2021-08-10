@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DrawableDirective } from 'src/app/utils/directives/drawable.directive';
 import { SimpleChartComponent } from 'src/app/components/simple-chart/simple-chart.component';
 import { BootstrapModule } from './submodules/bootstrap.module';
+import { ChartsModule } from 'ng2-charts';
 
 const COMPONENTS = [
   SignaturePadComponent,
@@ -17,7 +18,8 @@ const DIRECTIVES = [
 
 const MODULES = [
   TranslateModule.forChild(),
-  BootstrapModule
+  BootstrapModule,
+  ChartsModule
 ];
 
 const CHILD_PROVIDERS = [

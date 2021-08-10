@@ -1,17 +1,21 @@
 <div class="row wrapper-panel">
-
   <div class="col-lg-6 wrapper-pad">
     <div class="label-pad">
-      {{ 'pages.writeNumber.title' | translate }}
+      {{ "pages.writeNumber.title" | translate }}
     </div>
-    <app-signature-pad (imageData)="_predictNumber($event)"></app-signature-pad>
+    <app-signature-pad
+      (imageData)="_predictNumber($event)"
+      (imageCleared)="_resetChartData()"
+    ></app-signature-pad>
   </div>
 
   <div class="col-lg-6 wrapper-pad">
     <div class="label-pad">
-      {{ 'pages.writeNumber.results' | translate }}
+      {{ "pages.writeNumber.results" | translate }}
     </div>
-    <!-- TODO - graph component -->
+    <app-simple-chart
+      [chartData]="_chartData"
+      [chartLabels]="_chartLabels"
+    ></app-simple-chart>
   </div>
-
 </div>
