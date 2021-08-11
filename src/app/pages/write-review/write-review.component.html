@@ -2,21 +2,20 @@
   <div class="row">
     <div class="col-lg-6 wrapper-pad">
       <div class="label-pad">
-        {{ "pages.writeNumber.title" | translate }}
+        {{ "pages.writeReview.title" | translate }}
       </div>
-      <!-- <app-signature-pad
-      (imageData)=""
-      (imageCleared)="_resetChartData()"
-      ></app-signature-pad> -->
+      <div class="form-group">
+        <textarea class="form-control input-review" rows="4"></textarea>
+      </div>
     </div>
 
     <div class="col-lg-6 wrapper-chart">
       <div class="label-pad">
-        {{ "pages.writeNumber.results" | translate }}
+        {{ "pages.writeReview.results" | translate }}
       </div>
       <app-simple-chart
-      [chartData]="[0]"
-      [chartLabels]="['0']"
+        [chartData]="_chartData"
+        [chartLabels]="_chartLabels"
       ></app-simple-chart>
     </div>
   </div>

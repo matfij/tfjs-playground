@@ -8,6 +8,16 @@
   text-align: center;
 }
 
+.input-review {
+  width: 360px;
+  margin: auto;
+
+  resize: none;
+  border: 2px dashed $app-dark;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .wrapper-chart {
   max-width: 360px !important;
   margin: auto;
@@ -16,6 +26,7 @@
   padding: auto;
   overflow: hidden;
 }
+
 
 .label-pad {
   font-size: 24px;

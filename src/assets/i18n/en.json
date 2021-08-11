@@ -11,6 +11,12 @@
     "writeNumber": {
       "title": "Write number for classification",
       "results": "Classification results"
+    },
+    "writeReview": {
+      "title": "Write review for classification",
+      "results": "Classification result",
+      "positive": "Positive",
+      "negative": "Negative"
     }
   }
 }

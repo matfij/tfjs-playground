@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CoreModule } from "src/app/@core/core.module";
+import { WriteReviewRoutingModule } from "./write-review-routing.module";
 import { WriteReviewComponent } from "./write-review.component";
 
 @NgModule({
@@ -7,6 +8,7 @@ import { WriteReviewComponent } from "./write-review.component";
     WriteReviewComponent
   ],
   imports: [
+    WriteReviewRoutingModule,
     CoreModule.forChild()
   ]
 })

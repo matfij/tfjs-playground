@@ -1,14 +1,29 @@
-import { Component, OnInit } from '@angular/core';
 import * as tf from '@tensorflow/tfjs';
+import { Component, OnInit } from '@angular/core';
 import { Label, SingleDataSet } from 'ng2-charts';
+
+const CONFIG = {
+  NUMBER_OF_CLASSES: 10,
+  CLASS_LABELS: [
+    'Number 1',
+    'Number 2',
+    'Number 3',
+    'Number 4',
+    'Number 5',
+    'Number 6',
+    'Number 7',
+    'Number 8',
+    'Number 9',
+  ],
+  DEFAULT_OUTPUT_VALUE: 1,
+};
 
 @Component({
   selector: 'app-write-number',
   templateUrl: './write-number.component.html',
-  styleUrls: ['./write-number.component.scss']
+  styleUrls: ['./write-number.component.scss'],
 })
 export class WriteNumberComponent implements OnInit {
-
   private _model: tf.LayersModel;
   public _prediction: any;
   public _chartLabels: Label[] = [];
@@ -30,9 +45,9 @@ export class WriteNumberComponent implements OnInit {
     this._chartLabels = [];
     this._chartData = [];
 
-    for (let i = 0; i < 10; i++) {
-      this._chartLabels.push(`Number ${i}`);
-      this._chartData.push(1);
+    for (let i = 0; i < CONFIG.NUMBER_OF_CLASSES; i++) {
+      this._chartLabels.push(CONFIG.CLASS_LABELS[i]);
+      this._chartData.push(CONFIG.DEFAULT_OUTPUT_VALUE);
     }
   }
 
@@ -56,5 +71,4 @@ export class WriteNumberComponent implements OnInit {
       this._setChartData(this._prediction);
     });
   }
-
 }
