@@ -1,0 +1,19 @@
+@import '../../@core/theme/variables.scss';
+
+.wrapper-navbar {
+  width: 100%;
+  margin-bottom: 25px;
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper-option {
+  margin: 0px 2%;
+}
+
+.btn-option {
+  width: 200px;
+}

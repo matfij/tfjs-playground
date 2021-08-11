@@ -4,10 +4,10 @@
       <div class="label-pad">
         {{ "pages.writeNumber.title" | translate }}
       </div>
-      <app-signature-pad
-      (imageData)="_predictNumber($event)"
+      <!-- <app-signature-pad
+      (imageData)=""
       (imageCleared)="_resetChartData()"
-      ></app-signature-pad>
+      ></app-signature-pad> -->
     </div>
 
     <div class="col-lg-6 wrapper-chart">
@@ -15,8 +15,8 @@
         {{ "pages.writeNumber.results" | translate }}
       </div>
       <app-simple-chart
-      [chartData]="_chartData"
-      [chartLabels]="_chartLabels"
+      [chartData]="[0]"
+      [chartLabels]="['0']"
       ></app-simple-chart>
     </div>
   </div>

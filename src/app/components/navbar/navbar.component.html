@@ -1,0 +1,7 @@
+<div class="wrapper-navbar">
+  <div *ngFor="let item of _navigationItems" class="wrapper-option">
+    <button (click)="_navigate(item.href)" type="button" class="btn btn-outline-dark btn-option">
+      {{ item.label | translate }}
+    </button>
+  </div>
+</div>

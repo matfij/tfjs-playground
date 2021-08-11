@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/write-number/write-number.module').then(m => m.WriteNumberModule)
   },
   {
+    path: 'write-review',
+    loadChildren: () => import('./pages/write-review/write-review.module').then(m => m.WriteReviewModule)
+  },
+  {
     path: '**',
     redirectTo: 'write-number'
   }

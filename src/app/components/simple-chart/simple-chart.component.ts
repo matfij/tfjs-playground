@@ -10,7 +10,7 @@ import { Label, SingleDataSet } from 'ng2-charts';
 export class SimpleChartComponent implements OnInit {
 
     @Input() chartOptions: ChartOptions = {
-      responsive: true,
+      responsive: false,
     };
     @Input() chartLabels: Label[] = [];
     @Input() chartData: SingleDataSet = [];

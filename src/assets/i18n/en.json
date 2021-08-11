@@ -1,6 +1,8 @@
 {
   "common": {
-    "title": "TF-powered text recognition"
+    "title": "TFJS Playground",
+    "digitsClassification": "Digits classification",
+    "reviewsClassification": "Reviews classification"
   },
   "icons": {
     "clear": "&times;"

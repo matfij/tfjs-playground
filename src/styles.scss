@@ -1,10 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'app/@core/theme/variables.scss';
 
-$app-dark: #001427;
-$app-green: #708d81;
-$app-camel: #f4d58d;
-$app-red: #bf0603;
-$app-crimson: #8d0801;
+$theme-colors: (
+  "$primary": $app-green,
+  "$danger": $app-red
+);
 
 $bodyPadding: 128px;
 
