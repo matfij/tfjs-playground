@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StoreModule } from '@ngrx/store';
+import { numberClassifierReducer } from './state/number-classifier/reducer';
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -27,7 +28,7 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
       extend: true,
     }),
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({state: numberClassifierReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

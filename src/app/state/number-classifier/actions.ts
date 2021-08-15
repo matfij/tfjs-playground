@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { NumberClassifierAction } from '../interfaces/number-classifier.state';
+import { NumberClassifierAction } from './interfaces';
 
 export const ADD_ACTION = '[NumberClassifier] add action';
 export const UNDO_ACTION = '[NumberClassifier] undo action';

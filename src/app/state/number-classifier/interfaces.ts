@@ -1,5 +1,5 @@
 export interface NumberClassifierAction {
-  canvasState: ImageData;
+  canvasState: Uint8ClampedArray | number[];
   dateTime?: string;
 }
 

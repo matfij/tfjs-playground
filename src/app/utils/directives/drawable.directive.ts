@@ -74,4 +74,15 @@ export class DrawableDirective implements OnInit {
     this._canvasContext.drawImage(this._canvasElement, 0, 0, 28, 28);
     return this._canvasContext.getImageData(0, 0, 28, 28);
   }
+
+  setImageData(data: number[]) {
+    const uintData = new Uint8ClampedArray(data);
+    const imageData: ImageData = {
+      data: uintData,
+      height: this._canvasContext.canvas.height,
+      width: this._canvasContext.canvas.width
+    };
+
+    this._canvasContext.putImageData(imageData, 0, 0);
+  }
 }

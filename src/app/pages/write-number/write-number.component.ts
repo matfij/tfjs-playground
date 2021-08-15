@@ -5,6 +5,7 @@ import { Label, SingleDataSet } from 'ng2-charts';
 const CONFIG = {
   NUMBER_OF_CLASSES: 10,
   CLASS_LABELS: [
+    'Number 0',
     'Number 1',
     'Number 2',
     'Number 3',

@@ -5,7 +5,9 @@
     "reviewsClassification": "Reviews classification"
   },
   "icons": {
-    "clear": "&times;"
+    "clear": "&#215;",
+    "redo": "&#171;",
+    "undo": "&#187;"
   },
   "pages": {
     "writeNumber": {
@@ -14,7 +16,7 @@
     },
     "writeReview": {
       "title": "Write review for classification",
-      "results": "Classification result",
+      "results": "Classification results",
       "positive": "Positive",
       "negative": "Negative"
     }
