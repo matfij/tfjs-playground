@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 import { SignaturePadComponent } from './signature-pad.component';
+
 
 describe('SignaturePadComponent', () => {
   let component: SignaturePadComponent;
@@ -13,7 +15,8 @@ describe('SignaturePadComponent', () => {
         TranslateModule.forChild()
       ],
       providers: [
-        TranslateStore
+        TranslateStore,
+        provideMockStore()
       ]
     })
     .compileComponents();
