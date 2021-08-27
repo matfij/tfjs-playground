@@ -1,15 +1,15 @@
 import { Directive, HostListener, ElementRef, Output, EventEmitter, OnInit } from '@angular/core';
+import { ExtendedImageData } from 'src/app/definitions/interfaces/extended-image-data';
 
 @Directive({
   selector: '[appDrawable]'
 })
 export class DrawableDirective implements OnInit {
-
   _cursorPosition = { x: 0, y: 0 };
   _canvasContext: CanvasRenderingContext2D;
   _canvasElement: HTMLCanvasElement;
 
-  @Output() imageChanged = new EventEmitter<ImageData>();
+  @Output() imageChanged = new EventEmitter<ExtendedImageData>();
 
   constructor(
     private _element: ElementRef
@@ -55,12 +55,6 @@ export class DrawableDirective implements OnInit {
     this._canvasContext.stroke();
   }
 
-  @HostListener('resize', ['$event'])
-  onResize(_) {
-    this._canvasContext.canvas.width = window.innerWidth;
-    this._canvasContext.canvas.height = window.innerHeight;
-  }
-
   setPosition(event) {
     this._cursorPosition.x = event.offsetX;
     this._cursorPosition.y = event.offsetY;
@@ -70,18 +64,24 @@ export class DrawableDirective implements OnInit {
     this._canvasContext.clearRect(0, 0, this._canvasContext.canvas.width, this._canvasContext.canvas.height);
   }
 
-  getImgData(): ImageData {
+  getImgData(): ExtendedImageData {
+    const fullImageData = this._canvasContext.getImageData(
+      0, 0, this._canvasContext.canvas.width, this._canvasContext.canvas.height
+    );
+
     this._canvasContext.drawImage(this._canvasElement, 0, 0, 28, 28);
-    return this._canvasContext.getImageData(0, 0, 28, 28);
+    const smallImageData =  this._canvasContext.getImageData(0, 0, 28, 28);
+
+    return { fullImageData, smallImageData };
   }
 
   setImageData(data: number[]) {
     const uintData = new Uint8ClampedArray(data);
-    const imageData: ImageData = {
-      data: uintData,
-      height: this._canvasContext.canvas.height,
-      width: this._canvasContext.canvas.width
-    };
+    const imageData = new ImageData(
+      uintData,
+      this._canvasContext.canvas.width,
+      this._canvasContext.canvas.height
+    );
 
     this._canvasContext.putImageData(imageData, 0, 0);
   }

@@ -1,6 +1,7 @@
 import { Component, Output, ViewChild, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { ExtendedImageData } from 'src/app/definitions/interfaces/extended-image-data';
 import { AddAction, RedoAction, UndoAction } from 'src/app/state/number-classifier/actions';
 import { NumberClassifierAction, NumberClassifierState } from 'src/app/state/number-classifier/interfaces';
 import { DrawableDirective } from 'src/app/utils/directives/drawable.directive';
@@ -26,11 +27,11 @@ export class SignaturePadComponent {
     private _store: Store<{state: NumberClassifierState}>
   ) {}
 
-  public _onImageChanged(imageData: ImageData) {
-    this.imageData.next(imageData);
+  public _onImageChanged(imageData: ExtendedImageData) {
+    this.imageData.next(imageData.smallImageData);
 
     const data: NumberClassifierAction = {
-      canvasState: [...imageData.data]
+      canvasState: [...imageData.fullImageData.data]
     }
     this._store.dispatch(new AddAction(data));
   }
@@ -41,7 +42,7 @@ export class SignaturePadComponent {
     this.imageCleared.next(true);
 
     const data: NumberClassifierAction = {
-      canvasState: [...(this._canvas.getImgData().data)]
+      canvasState: [...(this._canvas.getImgData().fullImageData.data)]
     }
     this._store.dispatch(new AddAction(data));
   }
@@ -52,6 +53,8 @@ export class SignaturePadComponent {
     this._store.select('state').subscribe((state: NumberClassifierState) => {
       this._canvas.setImageData(state.savedActions[state.savedActions.length - 1].canvasState as number[]);
     });
+
+    this.imageData.next(this._canvas.getImgData().smallImageData);
   }
 
   public _undo() {
@@ -60,5 +63,7 @@ export class SignaturePadComponent {
     this._store.select('state').subscribe((state: NumberClassifierState) => {
       this._canvas.setImageData(state.savedActions[state.savedActions.length - 1].canvasState as number[]);
     });
+
+    this.imageData.next(this._canvas.getImgData().smallImageData);
   }
 }

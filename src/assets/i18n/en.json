@@ -6,8 +6,8 @@
   },
   "icons": {
     "clear": "&#215;",
-    "redo": "&#171;",
-    "undo": "&#187;"
+    "redo": "&#187;",
+    "undo": "&#171;"
   },
   "pages": {
     "writeNumber": {
