@@ -7,6 +7,7 @@ import { SimpleChartComponent } from 'src/app/components/simple-chart/simple-cha
 import { BootstrapModule } from './submodules/bootstrap.module';
 import { ChartsModule } from 'ng2-charts';
 import { NavbarComponent } from '../components/navbar/navbar.component';
+import { DebounceDirective } from '../utils/directives/debounce.directive';
 
 const COMPONENTS = [
   SignaturePadComponent,
@@ -15,7 +16,8 @@ const COMPONENTS = [
 ];
 
 const DIRECTIVES = [
-  DrawableDirective
+  DrawableDirective,
+  DebounceDirective
 ];
 
 const MODULES = [

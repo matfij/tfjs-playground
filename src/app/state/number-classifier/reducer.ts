@@ -20,31 +20,38 @@ export function numberClassifierReducer(
   state: NumberClassifierState = initialState,
   action: Actions
 ) {
-  // console.log(state);
-
   switch (action.type) {
     case ADD_ACTION: {
-      const actions =[...state.savedActions, action.actionData]
+      const actions = [...state.savedActions, action.actionData];
 
       return newStateFactory(state, { savedActions: actions });
     }
     case UNDO_ACTION: {
-      const lastInd = state.savedActions.length - 1;
-      const undoneAction = state.savedActions[lastInd];
+      if (state.savedActions.length > 0) {
+        const lastInd = state.savedActions.length - 1;
+        const undoneAction = state.savedActions[lastInd];
 
-      const savedActions = state.savedActions.slice(0, lastInd)
-      const undoneActions = [...state.undoneActions, undoneAction];
+        const savedActions = state.savedActions.slice(0, lastInd);
+        const undoneActions = [...state.undoneActions, undoneAction];
 
-      return newStateFactory(state, { savedActions, undoneActions });
+        return newStateFactory(state, { savedActions, undoneActions });
+      } else {
+        return state;
+      }
+
     }
     case REDO_ACTION: {
-      const lastInd = state.undoneActions.length - 1;
-      const redoneAction = state.undoneActions[lastInd];
+      if (state.undoneActions.length > 0) {
+        const lastInd = state.undoneActions.length - 1;
+        const redoneAction = state.undoneActions[lastInd];
 
-      const savedActions = [...state.savedActions, redoneAction];
-      const undoneActions = state.undoneActions.slice(0, lastInd)
+        const savedActions = [...state.savedActions, redoneAction];
+        const undoneActions = state.undoneActions.slice(0, lastInd);
 
-      return newStateFactory(state, { savedActions, undoneActions });
+        return newStateFactory(state, { savedActions, undoneActions });
+      } else {
+        return state;
+      }
     }
     case RESET: {
       return initialState;

@@ -1,5 +1,6 @@
-import * as tf from '@tensorflow/tfjs';
+
 import { Component, OnInit } from '@angular/core';
+import { browser, cast, LayersModel, loadLayersModel, tidy } from '@tensorflow/tfjs';
 import { Label, SingleDataSet } from 'ng2-charts';
 
 const CONFIG = {
@@ -25,21 +26,21 @@ const CONFIG = {
   styleUrls: ['./write-number.component.scss'],
 })
 export class WriteNumberComponent implements OnInit {
-  private _model: tf.LayersModel;
+  private _model: LayersModel;
   public _prediction: any;
   public _chartLabels: Label[] = [];
   public _chartData: SingleDataSet = [];
 
   ngOnInit(): void {
-    this._loadModel().then((model: tf.LayersModel) => {
+    this._loadModel().then((model: LayersModel) => {
       this._model = model;
     });
 
     this._resetChartData();
   }
 
-  private _loadModel(): Promise<tf.LayersModel> {
-    return tf.loadLayersModel('/assets/models/number_classifier/model.json');
+  private _loadModel(): Promise<LayersModel> {
+    return loadLayersModel('/assets/models/number_classifier/model.json');
   }
 
   public _resetChartData() {
@@ -59,11 +60,19 @@ export class WriteNumberComponent implements OnInit {
   }
 
   public _predictNumber(numberImage: ImageData) {
-    return tf.tidy(() => {
+    if (!this._model) {
+      return;
+    }
+    if (numberImage.data.toString().replace(/[0-1,]/g, '').length === 0) {
+      this._resetChartData();
+      return;
+    }
+
+    return tidy(() => {
       // conver canvas data to tenor
-      let img = tf.browser.fromPixels(numberImage, 1);
+      let img = browser.fromPixels(numberImage, 1);
       img = img.reshape([1, 28, 28, 1]);
-      img = tf.cast(img, 'float32');
+      img = cast(img, 'float32');
 
       // feed the model
       const output = this._model.predict(img);
