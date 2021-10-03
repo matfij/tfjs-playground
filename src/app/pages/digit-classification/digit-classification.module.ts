@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WriteNumberComponent } from './write-number.component';
+import { DigitClassificationComponent } from './digit-classification.component';
 import { CoreModule } from 'src/app/@core/core.module';
-import { WriteNumberRoutingModule } from './write-number-routing.module';
+import { DigitClassificationRoutingModule } from './digit-classification-routing.module';
 
 @NgModule({
   declarations: [
-    WriteNumberComponent
+    DigitClassificationComponent
   ],
   imports: [
     CommonModule,
-    WriteNumberRoutingModule,
+    DigitClassificationRoutingModule,
     CoreModule.forChild()
   ]
 })

@@ -5,16 +5,19 @@ import { TranslateService } from '@ngx-translate/core';
 
 const CONFIG = {
   NUMBER_OF_CLASSES: 2,
-  CLASS_LABELS: ['pages.writeReview.positive', 'pages.writeReview.negative'],
+  CLASS_LABELS: [
+    'pages.toxicityAnalysis.positive',
+    'pages.toxicityAnalysis.negative',
+  ],
   DEFAULT_OUTPUT_VALUE: 1,
 };
 
 @Component({
   selector: 'app-write-review',
-  templateUrl: './write-review.component.html',
-  styleUrls: ['./write-review.component.scss'],
+  templateUrl: './toxicity-analysis.component.html',
+  styleUrls: ['./toxicity-analysis.component.scss'],
 })
-export class WriteReviewComponent implements OnInit {
+export class ToxicityAnalysisComponent implements OnInit {
   private _model: tf.LayersModel;
   public _prediction: any;
   public _chartLabels: Label[] = [];

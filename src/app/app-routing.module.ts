@@ -13,11 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'write-number',
-    loadChildren: () => import('./pages/write-number/write-number.module').then(m => m.WriteNumberModule)
+    loadChildren: () => import('./pages/digit-classification/digit-classification.module').then(m => m.WriteNumberModule)
   },
   {
     path: 'write-review',
-    loadChildren: () => import('./pages/write-review/write-review.module').then(m => m.WriteReviewModule)
+    loadChildren: () => import('./pages/toxicity-analysis/toxicity-analysis.module').then(m => m.ToxicityAnalysisModule)
   },
   {
     path: '**',

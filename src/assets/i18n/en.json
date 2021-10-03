@@ -3,7 +3,7 @@
     "title": "TFJS Playground",
     "misc": "Miscellaneous",
     "digitsClassification": "Digits classification",
-    "reviewsClassification": "Reviews classification"
+    "toxicityAnalysis": "Toxicity analysis"
   },
   "icons": {
     "clear": "&#215;",
@@ -14,13 +14,13 @@
     "misc": {
       "title": "Work in progress..."
     },
-    "writeNumber": {
+    "digitsClassification": {
       "title": "Write number for classification",
       "results": "Classification results"
     },
-    "writeReview": {
-      "title": "Write review for classification",
-      "results": "Classification results",
+    "toxicityAnalysis": {
+      "title": "Write a comment for analysis",
+      "results": "Analysis results",
       "positive": "Positive",
       "negative": "Negative"
     }

@@ -1,15 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule, TranslateStore } from '@ngx-translate/core';
+import { ToxicityAnalysisComponent } from './toxicity-analysis.component';
 
-import { WriteReviewComponent } from './write-review.component';
-
-describe('WriteReviewComponent', () => {
-  let component: WriteReviewComponent;
-  let fixture: ComponentFixture<WriteReviewComponent>;
+describe('ToxicityAnalysisComponent', () => {
+  let component: ToxicityAnalysisComponent;
+  let fixture: ComponentFixture<ToxicityAnalysisComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WriteReviewComponent ],
+      declarations: [ ToxicityAnalysisComponent ],
       imports: [
         TranslateModule.forChild()
       ],
@@ -21,7 +20,7 @@ describe('WriteReviewComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WriteReviewComponent);
+    fixture = TestBed.createComponent(ToxicityAnalysisComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

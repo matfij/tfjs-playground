@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StoreModule } from '@ngrx/store';
 import { numberClassifierReducer } from './state/number-classifier/reducer';
+import { ConfigurationService } from './services/configuration.service';
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -38,9 +39,13 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 export class AppModule {
 
   constructor(
+    configurationService: ConfigurationService,
     translateService: TranslateService
   ) {
-    translateService.addLangs(['en']);
-    translateService.setDefaultLang('en');
+    const availableLangs = configurationService.appConfig.AVAILABLE_LANGS;
+    const defaultLang = configurationService.appConfig.DEFAULT_LANG;
+
+    translateService.addLangs(availableLangs);
+    translateService.setDefaultLang(defaultLang);
   }
 }

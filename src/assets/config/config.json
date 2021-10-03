@@ -1,0 +1,6 @@
+{
+  "TEST_VERSION": true,
+  "QUICK_STORE_KEY": "tfjs-playground-",
+  "AVAILABLE_LANGS": ["en"],
+  "DEFAULT_LANG": "en"
+}

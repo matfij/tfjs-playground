@@ -22,10 +22,10 @@ const CONFIG = {
 
 @Component({
   selector: 'app-write-number',
-  templateUrl: './write-number.component.html',
-  styleUrls: ['./write-number.component.scss'],
+  templateUrl: './digit-classification.component.html',
+  styleUrls: ['./digit-classification.component.scss'],
 })
-export class WriteNumberComponent implements OnInit {
+export class DigitClassificationComponent implements OnInit {
   private _model: LayersModel;
   public _prediction: any;
   public _chartLabels: Label[] = [];

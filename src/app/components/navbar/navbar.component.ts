@@ -14,7 +14,7 @@ export class NavbarComponent {
       href: 'write-number'
     },
     {
-      label: 'common.reviewsClassification',
+      label: 'common.toxicityAnalysis',
       href: 'write-review'
     },
     {

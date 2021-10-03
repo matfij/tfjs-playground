@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WriteNumberComponent } from './write-number.component';
+import { DigitClassificationComponent } from './digit-classification.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: WriteNumberComponent
+    component: DigitClassificationComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WriteNumberRoutingModule {}
+export class DigitClassificationRoutingModule {}
