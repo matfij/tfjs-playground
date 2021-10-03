@@ -8,6 +8,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'misc',
+    loadChildren: () => import('./pages/misc/misc.module').then(m => m.MiscModule)
+  },
+  {
     path: 'write-number',
     loadChildren: () => import('./pages/write-number/write-number.module').then(m => m.WriteNumberModule)
   },

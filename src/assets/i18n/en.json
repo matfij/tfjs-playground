@@ -1,6 +1,7 @@
 {
   "common": {
     "title": "TFJS Playground",
+    "misc": "Miscellaneous",
     "digitsClassification": "Digits classification",
     "reviewsClassification": "Reviews classification"
   },
@@ -10,6 +11,9 @@
     "undo": "&#171;"
   },
   "pages": {
+    "misc": {
+      "title": "Work in progress..."
+    },
     "writeNumber": {
       "title": "Write number for classification",
       "results": "Classification results"

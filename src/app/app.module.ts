@@ -20,6 +20,9 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    StoreModule.forRoot(
+      { state: numberClassifierReducer }
+    ),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -28,7 +31,6 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
       extend: true,
     }),
-    StoreModule.forRoot({state: numberClassifierReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -36,9 +38,9 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 export class AppModule {
 
   constructor(
-    _translateService: TranslateService
+    translateService: TranslateService
   ) {
-    _translateService.addLangs(['en']);
-    _translateService.setDefaultLang('en');
+    translateService.addLangs(['en']);
+    translateService.setDefaultLang('en');
   }
 }

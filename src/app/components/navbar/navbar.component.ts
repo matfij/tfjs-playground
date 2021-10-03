@@ -17,14 +17,17 @@ export class NavbarComponent {
       label: 'common.reviewsClassification',
       href: 'write-review'
     },
+    {
+      label: 'common.misc',
+      href: 'misc'
+    },
   ];
 
   constructor(
     private _router: Router
   ) {}
 
-  public _navigate(href: string, ...args) {
-    console.log(href)
+  public _navigate(href: string, ...args: any[]) {
     this._router.navigate([href, args]);
   }
 }
